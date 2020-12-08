@@ -199,7 +199,7 @@ class DbBackup(models.Model):
                 for record in rec.gdrive_email_notif_ids.mapped('login'):
                     email_to += record + ','
 
-                notification_template = self.env['ir.model.data'].sudo().get_object('auto_backup_upload',
+                notification_template = self.env['ir.model.data'].sudo().get_object('vit_auto_backup_upload',
                                                                                     'email_google_drive_upload')
                 values = notification_template.generate_email(self.id)
                 values['email_from'] = self.env['res.users'].browse(self.env.uid).company_id.email
@@ -223,7 +223,7 @@ class DbBackup(models.Model):
                 for rec in rec.gdrive_email_notif_ids.mapped('login'):
                     email_to += rec + ','
 
-                notification_template = self.env['ir.model.data'].sudo().get_object('auto_backup_upload',
+                notification_template = self.env['ir.model.data'].sudo().get_object('vit_auto_backup_upload',
                                                                                     'email_google_drive_upload')
                 values = notification_template.generate_email(self.id)
                 values['email_from'] = self.env['res.users'].browse(self.env.uid).company_id.email
